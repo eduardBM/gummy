@@ -25,7 +25,6 @@ jQuery(document).ready(function($){
 
 //login function
 
-//var loggedin=0; // for test if user is logged in
 
     $('#submitlogin').click(function() {
       $.ajax({
@@ -40,10 +39,12 @@ jQuery(document).ready(function($){
         success: function(data) {
           localStorage.token = data.access_token;
           alert('Got a token from the server! Token: ' + data.access_token);;
+          $("#loginbutton").hide();
+          $("#logoutbutton").show();
+
         },
         error: function() {
           alert("Login Failed");
-          loggedin=0;
         }
       });
     });
@@ -52,6 +53,7 @@ jQuery(document).ready(function($){
 
     $('#logout').click(function() {
       localStorage.clear();
+      ("#loginbutton").show();
     });
 
  //register function
@@ -75,28 +77,26 @@ jQuery(document).ready(function($){
       });
     });
 
-
 //./JWT
+
+    //IsLoggedin
 
   //Replace DIV
 
-// new Vue({
-//   el: '#seemore',
-//   methods: {
-//     myFunction: function (msg) {
-//       alert('HI')
-//     }
-//   }
-// });
-
-
-//Simple Alert Function
-// ./ Button stuff
-});
+  });
 
 function seemore() {
-    alert("I am an alert box!");
-        $("#replacediv").hide();
+    $("#replacediv").hide();
+
+//Need to add product template
     }
+
+// ./ Button stuff
+
+
+
+
+
+
 
 

@@ -21,27 +21,6 @@ jQuery(document).ready(function($){
 
 //./REPEAT ITEMS
 
-
-// Test for auth
-
-// $('#test').click(function() {
-//       $.ajax({
-//         type: 'GET',
-//         url: '/api/profile',
-//         beforeSend: function(xhr) {
-//           if (localStorage.token) {
-//             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.token);
-//           }
-//         },
-//         success: function(data) {
-//           alert('Hello ' + data.name + '! You have successfully accessed to /api/profile.');
-//         },
-//         error: function() {
-//           alert("Sorry, you are not logged in.");
-//         }
-//       });
-//     });
-
 // JWT
 
 //login function
@@ -60,9 +39,7 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           localStorage.token = data.access_token;
-          alert('Got a token from the server! Token: ' + data.access_token);
-          // loggedin=1; // added to test if user is logged in
-          // console.log(loggedin);
+          alert('Got a token from the server! Token: ' + data.access_token);;
         },
         error: function() {
           alert("Login Failed");
@@ -101,18 +78,25 @@ jQuery(document).ready(function($){
 
 //./JWT
 
+  //Replace DIV
+
+// new Vue({
+//   el: '#seemore',
+//   methods: {
+//     myFunction: function (msg) {
+//       alert('HI')
+//     }
+//   }
+// });
 
 
-
-//If user is logged in make LOG IN button disappear and make Log out Button Appear
-
-// if (loggedin = 1) {
-//  console.log('User is logged in');
-// };
-
+//Simple Alert Function
 // ./ Button stuff
-
-
 });
+
+function seemore() {
+    alert("I am an alert box!");
+        $("#replacediv").hide();
+    }
 
 

@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
 
       $.ajax({
         type: "GET",
-        url: "http://localhost:3000/items.json",
+        url: "items",
         data: "json",
         success: function(data) {
         var item = $(".product-template").html();
@@ -38,9 +38,13 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           localStorage.token = data.access_token;
-          alert('Got a token from the server! Token: ' + data.access_token);;
-          $("#loginbutton").hide();
-          $("#logoutbutton").show();
+          alert('Got a token from the server! Token: ' + data.access_token);
+          $('#loginbutton').hide();
+          $('#logoutbutton').show();
+            //document.getElementById('loginbutton').style.visibility = 'hidden';
+            //document.getElementById('loginbutton').style.display = 'none';
+            //$('#loginbutton').attr("disabled", false);
+
 
         },
         error: function() {
@@ -92,11 +96,4 @@ function seemore() {
     }
 
 // ./ Button stuff
-
-
-
-
-
-
-
 

@@ -1,6 +1,6 @@
 static/node_modules/
 *.pyc
-*.DS_Store
+.DS_Store
 data.db
 /venv/
 /__pycache__/

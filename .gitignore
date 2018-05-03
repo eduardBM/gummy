@@ -2,5 +2,5 @@ static/node_modules/
 *.pyc
 *.DS_Store
 data.db
-/venv
+/venv/
 /__pycache__/

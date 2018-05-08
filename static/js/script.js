@@ -1,10 +1,13 @@
 jQuery(document).ready(function($){
 
+    beforeSend: function (xhr) {
+    xhr.setRequestHeader ("Authorization", "JWT " + localStorage.token);
+};
 //REPEAT ITEMS
 
       $.ajax({
         type: "GET",
-        url: "http://localhost:3000/items.json",
+        url: "items",
         data: "json",
         success: function(data) {
         var item = $(".product-template").html();
@@ -29,7 +32,7 @@ jQuery(document).ready(function($){
     $('#submitlogin').click(function() {
       $.ajax({
         type: "POST",
-        url: "http://localhost:5000/auth",
+        url: "auth",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({
@@ -38,9 +41,9 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           localStorage.token = data.access_token;
-          alert('Got a token from the server! Token: ' + data.access_token);;
-          $("#loginbutton").hide();
-          $("#logoutbutton").show();
+          alert('Got a token from the server! Token: ' + data.access_token);
+            $("#loginbutton").hide();
+            $("#logoutbutton").show();
 
         },
         error: function() {
@@ -53,7 +56,7 @@ jQuery(document).ready(function($){
 
     $('#logout').click(function() {
       localStorage.clear();
-      ("#loginbutton").show();
+        $("#loginbutton").show();
     });
 
  //register function
@@ -61,7 +64,7 @@ jQuery(document).ready(function($){
      $('#submitregister').click(function() {
       $.ajax({
         type: "POST",
-        url: "http://localhost:5000/register",
+        url: "register",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({

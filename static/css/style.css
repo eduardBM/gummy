@@ -15,7 +15,7 @@ body {
 }
 
 #cart {
-	color: #007bff;
+    color: #007bff;
 }
 
 #cart:hover svg {
@@ -23,6 +23,6 @@ body {
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 

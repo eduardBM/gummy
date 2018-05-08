@@ -42,8 +42,17 @@ jQuery(document).ready(function($){
         success: function(data) {
           localStorage.token = data.access_token;
           alert('Got a token from the server! Token: ' + data.access_token);
+<<<<<<< HEAD
             $("#loginbutton").hide();
             $("#logoutbutton").show();
+=======
+          $('#loginbutton').hide();
+          $('#logoutbutton').show();
+            //document.getElementById('loginbutton').style.visibility = 'hidden';
+            //document.getElementById('loginbutton').style.display = 'none';
+            //$('#loginbutton').attr("disabled", false);
+
+>>>>>>> 5513c905bddb3a0c74845a481afea550c59d24e1
 
         },
         error: function() {
@@ -95,11 +104,4 @@ function seemore() {
     }
 
 // ./ Button stuff
-
-
-
-
-
-
-
 

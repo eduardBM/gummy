@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import redirect, url_for, send_from_directory
+from flask import send_from_directory
 
 
 class Root(Resource):

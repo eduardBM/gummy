@@ -1,5 +1,8 @@
 jQuery(document).ready(function($){
 
+//    beforeSend: function (xhr) {
+//    xhr.setRequestHeader ("Authorization", "JWT " + localStorage.token);
+//};
 //REPEAT ITEMS
 
       $.ajax({
@@ -29,7 +32,7 @@ jQuery(document).ready(function($){
     $('#submitlogin').click(function() {
       $.ajax({
         type: "POST",
-        url: "http://localhost:5000/auth",
+        url: "auth",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({
@@ -38,13 +41,14 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           localStorage.token = data.access_token;
-          alert('Got a token from the server! Token: ' + data.access_token);
+          alert('Got a token from the server! Token: ' + data.access_token);;
+
           $('#loginbutton').hide();
           $('#logoutbutton').show();
+          $('#loginmodal').modal('hide');
             //document.getElementById('loginbutton').style.visibility = 'hidden';
             //document.getElementById('loginbutton').style.display = 'none';
             //$('#loginbutton').attr("disabled", false);
-
 
         },
         error: function() {
@@ -57,7 +61,8 @@ jQuery(document).ready(function($){
 
     $('#logout').click(function() {
       localStorage.clear();
-      ("#loginbutton").show();
+        $("#loginbutton").show();
+        $('#logoutbutton').hide();
     });
 
  //register function
@@ -65,7 +70,7 @@ jQuery(document).ready(function($){
      $('#submitregister').click(function() {
       $.ajax({
         type: "POST",
-        url: "http://localhost:5000/register",
+        url: "register",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({
@@ -74,6 +79,7 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           alert(data.message);
+          $('#registermodal').modal('hide');
         },
         error: function() {
           alert(data.message);
@@ -94,6 +100,7 @@ function seemore() {
 
 //Need to add product template
     }
+
 
 // ./ Button stuff
 

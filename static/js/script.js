@@ -1,8 +1,8 @@
 jQuery(document).ready(function($){
 
-    beforeSend: function (xhr) {
-    xhr.setRequestHeader ("Authorization", "JWT " + localStorage.token);
-};
+//    beforeSend: function (xhr) {
+//    xhr.setRequestHeader ("Authorization", "JWT " + localStorage.token);
+//};
 //REPEAT ITEMS
 
       $.ajax({
@@ -41,18 +41,14 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           localStorage.token = data.access_token;
-          alert('Got a token from the server! Token: ' + data.access_token);
-<<<<<<< HEAD
-            $("#loginbutton").hide();
-            $("#logoutbutton").show();
-=======
+          alert('Got a token from the server! Token: ' + data.access_token);;
+
           $('#loginbutton').hide();
           $('#logoutbutton').show();
+          $('#loginmodal').modal('hide');
             //document.getElementById('loginbutton').style.visibility = 'hidden';
             //document.getElementById('loginbutton').style.display = 'none';
             //$('#loginbutton').attr("disabled", false);
-
->>>>>>> 5513c905bddb3a0c74845a481afea550c59d24e1
 
         },
         error: function() {
@@ -66,6 +62,7 @@ jQuery(document).ready(function($){
     $('#logout').click(function() {
       localStorage.clear();
         $("#loginbutton").show();
+        $('#logoutbutton').hide();
     });
 
  //register function
@@ -82,6 +79,7 @@ jQuery(document).ready(function($){
         }),
         success: function(data) {
           alert(data.message);
+          $('#registermodal').modal('hide');
         },
         error: function() {
           alert(data.message);
@@ -102,6 +100,7 @@ function seemore() {
 
 //Need to add product template
     }
+
 
 // ./ Button stuff
 

@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER pariscc "parisc@protonmail.com"
+MAINTAINER pariscc "parisc@hyperdomain.com"
 RUN apk update && apk upgrade && apk add python3 py-pip
 ENV APP_PATH /gummy
 ADD . APP_PATH
